@@ -1,0 +1,45 @@
+@import './../../../scss/index.scss';
+
+#content {
+    padding: 20px;
+    #nsei {
+        margin-top: 20px;
+        text-align: center;
+    }
+    #div-greg {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 10vh;
+        padding-right: 15vw;
+        .speech-bubble {
+            position: relative;
+            background: #00aabb;
+            border-radius: .4em;
+            padding: 10px 20px;
+            height: 100%;
+        }
+        .speech-bubble:after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            width: 0;
+            height: 0;
+            border: 20px solid transparent;
+            border-left-color: #00aabb;
+            border-right: 0;
+            margin-top: -20px;
+            margin-right: -20px;
+        }
+        img {
+            height: 400px;
+        }
+    }
+    .container-perguntas {
+        .radio {
+            width: 30px;
+            height: 20px;
+        }
+    }
+
+}

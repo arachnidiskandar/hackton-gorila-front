@@ -1,0 +1,19 @@
+@import '../scss/index.scss';
+
+#content {
+    font-size: 24px;
+    .cabecalho {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 36px;
+        font-family: 'Nexa';
+        color: white;
+        background: linear-gradient(to bottom, $secondary, $primary);
+        height: 15vh;
+    }
+    #footer {
+        background: linear-gradient(to top, $secondary, $primary);
+        height: 15vh;
+    }
+}

@@ -1,0 +1,29 @@
+<div id="content">
+    <div *ngIf="!comecar" class="pt-2" id="nsei">
+        Leia com atenção antes de responder:
+        <p>Responda o questionário com toda a sinceridade possível</p>
+        <p>Se não entender alguma a proposta de uma pergunta, peça ajuda ao Gerg - o Gorila Investdor, ele pode te
+            ajudar.</p>
+        <div id="div-greg">
+            <div class="speech-bubble">
+                <p>Olá, eu sou o Greg - o gorila investidor!</p>
+                <p>Fico feliz que esteja por aqui. Conte comigo se tiver alguma dúvida.</p>
+            </div>
+            <img src="assets/images/gorila-greg.png" alt="">
+        </div>
+        <button (click)="this.comecar = true" class="btn btn-gradient">Comece agora</button>
+    </div>
+    <div *ngIf="comecar">
+        <div *ngFor="let pergunta of perguntas" class="pergunta">
+            <div>
+                <h4>{{pergunta?.descricao}}</h4>
+            </div>
+            <div>
+                <div *ngFor="let alternativa of pergunta?.alternativas" class="wrapper">
+                    <input class="radio" type="radio" id="alternativa.id">
+                    <label for="alternativa.id">{{alternativa.descricao}}</label><br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
