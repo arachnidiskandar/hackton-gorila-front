@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Pergunta, PerguntasService, Alternativa } from 'src/app/shared/perguntas/perguntas.service';
 import { FormControl } from '@angular/forms';
 
@@ -18,32 +18,37 @@ export class CadastroPerguntaComponent implements OnInit {
     id: 0,
     tipoPergunta: 0,
   };
-  alternativa: Alternativa = {
-    descricao: '',
-    id: 0,
-    idPergunta: 0
-  };
+ 
   alternativas: Array<Alternativa> = [];
-  controlChexboxes = new FormControl();
+  controlChexboxes = '';
+  @ViewChild('newHero', {static: null}) newHero: ElementRef;
   constructor(private perguntaService: PerguntasService) { }
 
   ngOnInit() {
   }
   addHero(newHero: string) {
+    const alternativa: Alternativa = {
+      descricao: '',
+      id: 0,
+      idPergunta: 0,
+      tag: ''
+    };
     if (newHero) {
       this.heroes.push(newHero);
-      this.alternativa.descricao = newHero;
-
-      this.alternativas.push(this.alternativa)
+      alternativa.tag = this.controlChexboxes;
+      alternativa.descricao = newHero;
+      this.newHero.nativeElement.value = '';
+      this.alternativas.push(alternativa);
     }
     for (let i = 0; i< this.heroes.length; i++) {
-      this.alternativa.descricao
+      alternativa.descricao
     }
   }
 
   submitPergunta() {
     this.pergunta.descricao = this.perguntaDescricao;
     this.pergunta.explicacao = this.explicacao;
+    this.pergunta.alternativas = this.alternativas;
     this.perguntaService.inserePerguntas(this.pergunta).subscribe();
   }
 }

@@ -39,7 +39,8 @@
   
   .btn.btn-gradient {
     background: $primary;
-    background: linear-gradient(to right, $primary, $secondary);
+    background-image: -webkit-gradient(linear, left top, right top, from(#10C0C6), color-stop(51%, #50df8f), to(#10C0C6));
+    background-image: linear-gradient(to right, #10C0C6 0%, #50df8f 51%, #10C0C6 100%);
     background-size: 200%;
     background-position: 0;
     border-radius: 50px;

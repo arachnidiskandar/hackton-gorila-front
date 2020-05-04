@@ -47,30 +47,21 @@ export class FormularioComponent implements OnInit {
     const respostas = [];
     Object.keys(this.formPerguntas.value).forEach(key => {
       const resposta = {
-        idPegunta: parseInt(key),
+        idPergunta: parseInt(key),
         descricoes: [this.formPerguntas.controls[key].value],
         id: 0
       };
       respostas.push(resposta);
     });
-    this.perguntasService.enviarRepostas(respostas).subscribe();
-    const Toast = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-      onOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer);
-        toast.addEventListener('mouseleave', Swal.resumeTimer);
-      }
-    });
-    Toast.fire({
-      icon: 'success',
-      title: 'Respostas enviadas. Estamos analisando o seu perfil.'
+    this.perguntasService.enviarRepostas(respostas).subscribe(r=>{},error=>{},()=>{
+      Swal.fire({
+        title: 'Respostas Enviadas!',
+        icon: 'success'
+      })
     });
   }
   exibirExplicacao(indexPergunta: number) {
+    this.exibirMensagem = !this.exibirMensagem;
     this.mensagem = this.grupoPerguntas[this.pagina][indexPergunta].explicacao;
   }
 }

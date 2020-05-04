@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 export interface Pergunta {
   descricao: string;
   explicacao: string;
-  alternativas: [];
+  alternativas: Alternativa[]
   tipoPergunta?: number;
   id: number;
 }
@@ -20,6 +20,7 @@ export interface Alternativa {
   descricao: string;
   idPergunta: number;
   id: number;
+  tag?: string;
 }
 
 @Injectable({

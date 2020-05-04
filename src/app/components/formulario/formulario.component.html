@@ -1,3 +1,14 @@
+<div class="trap_section">
+    <div id="trap_top1"></div>
+    <div id="section1">
+      <div class="indent">
+        <div>
+            Formulário para análise de perfil
+        </div>
+      </div>
+    </div>
+    <div id="trap_bottom1"></div>
+</div>
 <div id="content">
     <div *ngIf="!comecar" class="pt-2" id="nsei">
         Leia com atenção antes de responder:
@@ -17,13 +28,15 @@
         <div id="wrap-perguntas">
             <div *ngFor="let pergunta of grupoPerguntas[pagina];let i = index" class="pergunta">
                 <div class="d-flex">
-                    <h4 id="titulo-pergunta">{{pergunta?.descricao}}</h4><i *ngIf="pergunta.explicao" (click)="exibirExplicacao(i)" class="pointer fas fa-info-circle"></i>
+                    <h4 id="titulo-pergunta">{{pergunta?.descricao}}</h4><i *ngIf="pergunta.explicacao" (click)="exibirExplicacao(i)" class="pointer fas fa-info-circle"></i>
                 </div>
                 <div>
                     <div *ngFor="let alternativa of pergunta?.alternativas" class="wrapper">
-                        <input formControlName="{{pergunta.id}}" value="{{alternativa.descricao}}" class="radio" type="radio" id="alternativa.id">
-                        <label for="alternativa.id">{{alternativa.descricao}}</label><br>
-                    </div>
+                        <label class="container">{{alternativa.descricao}}
+                            <input formControlName="{{pergunta.id}}" value="{{alternativa.descricao}}" type="radio" checked="checked"  id="alternativa.id">
+                            <span class="checkmark"></span>
+                          </label>
+                        </div>
                 </div>
             </div>
         </div>

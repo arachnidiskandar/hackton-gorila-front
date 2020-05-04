@@ -17,16 +17,15 @@
   </div>
   <div class="alternativas">
     <label>Alternativas:</label><br />
-    <input #newHero id="input-alternativa" placeholder="Digite a alternativa" (keyup.enter)="addHero(newHero.value)"
-      (blur)="addHero(newHero.value); newHero.value = ''" />
+    <input #newHero id="input-alternativa" placeholder="Digite a alternativa"/>
       <div id="checkboxes">
-        <input type="radio" value="conservador" id="cons">
+        <input [(ngModel)]="controlChexboxes" type="radio" value="conservador" id="cons">
         <label for="cons">Conservador</label>
-        <input type="radio" value="moderado" id="mod">
+        <input [(ngModel)]="controlChexboxes" type="radio" value="moderado" id="mod">
         <label for="mod">Moderado</label>
-        <input type="radio" value="arrojado" id="arr">
+        <input [(ngModel)]="controlChexboxes" type="radio" value="arrojado" id="arr">
         <label for="arr">Arrojado</label>
-        <input type="radio" value="indiferente" id="indf">
+        <input  [(ngModel)]="controlChexboxes" type="radio" value="indiferente" id="indf">
         <label for="indf">Indiferente</label>
       </div>
     <button class="btn btn-secondary" (click)="addHero(newHero.value)">Adicionar Alternativa</button>
