@@ -1,5 +1,16 @@
+<div class="trap_section">
+  <div id="trap_top1"></div>
+  <div id="section1">
+    <div class="indent">
+      <div>
+          Cadastro de perguntas
+      </div>
+    </div>
+  </div>
+  <div id="trap_bottom1"></div>
+</div>
 <div id="content">
-    <div class="pergunta-control form__group field">
+    <div style="margin: 40px 0px;" class="pergunta-control form__group field">
       
       <input id="pergunta" class="form__field" [(ngModel)]="perguntaDescricao" type="text" placeholder="Digite sua pergunta" />
       <label class="form__label" for="pergunta">Pergunta</label><br />
@@ -12,27 +23,42 @@
         <option value="3">Multipla Escolha</option>
       </select>
     </div> -->
-  <div>
-    <label>Explicação</label><br />
-    <textarea [(ngModel)]="explicacao" rows="8" cols="50" placeholder="Digite a explicação para a pergunta"></textarea>
+  <div  style="margin: 40px 0px;">
+    <label >Explicação</label><br />
+    <textarea style="margin-top: 10px;"[(ngModel)]="explicacao" rows="8" cols="50" placeholder="Digite a explicação para a pergunta"></textarea>
   </div>
-  <div class="alternativas">
-    <label>Alternativas:</label><br />
-    <input #newHero id="input-alternativa" placeholder="Digite a alternativa"/>
+  <div class="alternativas form__group field">
+    
+    <label class="form__label">Alternativas:</label><br/>
+    
+    <input class="form__field" #newHero id="input-alternativa" placeholder="Digite a alternativa"/>
+    <i title="Adicionar Alternativa" (click)="addHero(newHero.value)" style="color: #10C0C6;position: absolute;margin-top: -35px;font-size: 24px;" class="fas fa-plus-circle pointer"></i>
       <div id="checkboxes">
-        <input [(ngModel)]="controlChexboxes" type="radio" value="conservador" id="cons">
-        <label for="cons">Conservador</label>
-        <input [(ngModel)]="controlChexboxes" type="radio" value="moderado" id="mod">
-        <label for="mod">Moderado</label>
-        <input [(ngModel)]="controlChexboxes" type="radio" value="arrojado" id="arr">
-        <label for="arr">Arrojado</label>
-        <input  [(ngModel)]="controlChexboxes" type="radio" value="indiferente" id="indf">
-        <label for="indf">Indiferente</label>
+        <label class="container">
+          <input [(ngModel)]="controlChexboxes" value="conservador" type="radio" checked="checked"  id="conservador">
+          Conversador
+          <span class="checkmark"></span>
+        </label>
+        <label class="container">
+          <input  [(ngModel)]="controlChexboxes" value="moderado" type="radio" checked="checked"  id="moderado">
+          Moderado
+          <span class="checkmark"></span>
+        </label>
+        <label class="container">
+          <input  [(ngModel)]="controlChexboxes" value="arrojado" type="radio" checked="checked"  id="arrojado">
+          Arrojado
+          <span class="checkmark"></span>
+        </label>
+        <label class="container">
+          <input  [(ngModel)]="controlChexboxes" value="indiferente" type="radio" checked="checked"  id="indiferente">
+          Indiferente
+          <span class="checkmark"></span>
+        </label>
       </div>
-    <button class="btn btn-secondary" (click)="addHero(newHero.value)">Adicionar Alternativa</button>
+     
   </div>
   <li *ngFor="let hero of heroes">{{ hero }}</li>
-  <div>
-    <button class="btn btn-secondary" (click)="submitPergunta()">Enviar</button>
+  <div class="d-flex justify-content-center m-4">
+    <button style="margin-top: 50px;width: 20%;" class="btn btn-gradient" (click)="submitPergunta()">Enviar</button>
   </div>
 </div>

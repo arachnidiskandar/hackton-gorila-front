@@ -39,6 +39,7 @@ export class FormularioComponent implements OnInit {
   avancar() {
     if (this.pagina + 1 !== this.grupoPerguntas.length) {
       this.pagina++;
+      this.exibirMensagem = false;
     } else {
       this.finalizar();
     }

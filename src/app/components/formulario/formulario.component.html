@@ -35,19 +35,19 @@
                         <label class="container">{{alternativa.descricao}}
                             <input formControlName="{{pergunta.id}}" value="{{alternativa.descricao}}" type="radio" checked="checked"  id="alternativa.id">
                             <span class="checkmark"></span>
-                          </label>
-                        </div>
+                        </label>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="d-flex justify-content-end align-items-center">
+        <div  style="max-width: 50vw;" class="d-flex justify-content-end align-items-center">
             <div>
                 <div *ngIf="exibirMensagem" class="speech-bubble">
                     <p>{{mensagem}}</p>
                 </div>
             </div>
             <img src="assets/images/gorila-greg.png" alt="">
-        </div>
+        </div >
     </div>
     <div class="botao">
         <button *ngIf="comecar" (click)="avancar()" class="btn btn-gradient">{{this.pagina + 1 !== this.grupoPerguntas.length ? 'Continuar' : 'Finalizar'}}</button>
