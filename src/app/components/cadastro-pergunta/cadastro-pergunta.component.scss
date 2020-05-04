@@ -1,0 +1,34 @@
+@import './../../../scss/index.scss';
+
+#content {
+    height: calc(70vh - 40px);
+    padding: 20px 8vw;
+    li {
+        list-style: none;
+    }
+    .pergunta-control {
+        display: flex;
+        margin-bottom: 10px;
+        input {
+            width: 50%;
+            padding: 5px;
+            margin-left: 10px;
+        }
+    }
+    .btn {
+        background-color: #0000b2;
+    }
+    .alternativas {
+        margin: 10px 0px;
+        input#input-alternativa {
+            width: 30%;
+            padding: 5px;
+            margin-right: 10px;
+        }
+        #checkboxes {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        
+    }
+}

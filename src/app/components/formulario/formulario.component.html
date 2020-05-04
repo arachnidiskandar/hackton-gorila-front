@@ -13,17 +13,31 @@
         </div>
         <button (click)="this.comecar = true" class="btn btn-gradient">Comece agora</button>
     </div>
-    <div *ngIf="comecar">
-        <div *ngFor="let pergunta of perguntas" class="pergunta">
-            <div>
-                <h4>{{pergunta?.descricao}}</h4>
-            </div>
-            <div>
-                <div *ngFor="let alternativa of pergunta?.alternativas" class="wrapper">
-                    <input class="radio" type="radio" id="alternativa.id">
-                    <label for="alternativa.id">{{alternativa.descricao}}</label><br>
+    <div id="form-perguntas" [formGroup]="formPerguntas" *ngIf="comecar">
+        <div id="wrap-perguntas">
+            <div *ngFor="let pergunta of grupoPerguntas[pagina];let i = index" class="pergunta">
+                <div class="d-flex">
+                    <h4 id="titulo-pergunta">{{pergunta?.descricao}}</h4><i *ngIf="pergunta.explicao" (click)="exibirExplicacao(i)" class="pointer fas fa-info-circle"></i>
+                </div>
+                <div>
+                    <div *ngFor="let alternativa of pergunta?.alternativas" class="wrapper">
+                        <input formControlName="{{pergunta.id}}" value="{{alternativa.descricao}}" class="radio" type="radio" id="alternativa.id">
+                        <label for="alternativa.id">{{alternativa.descricao}}</label><br>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="d-flex justify-content-end align-items-center">
+            <div>
+                <div *ngIf="exibirMensagem" class="speech-bubble">
+                    <p>{{mensagem}}</p>
+                </div>
+            </div>
+            <img src="assets/images/gorila-greg.png" alt="">
+        </div>
     </div>
+    <div class="botao">
+        <button *ngIf="comecar" (click)="avancar()" class="btn btn-gradient">{{this.pagina + 1 !== this.grupoPerguntas.length ? 'Continuar' : 'Finalizar'}}</button>
+    </div>
+    
 </div>

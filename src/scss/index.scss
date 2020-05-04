@@ -19,6 +19,14 @@
       background-color: darken($primary, 10%);
     }
   }
+  .btn.btn-secondary {
+    background-color: $secondary;
+    border: 1px solid $secondary;
+  
+    &:hover {
+      background-color: darken($primary, 10%);
+    }
+  }
   .btn.btn-outline-primary {
     background-color: transparent;
     border: 1px solid $primary;
@@ -132,6 +140,9 @@
   .justify-content-between {
     justify-content: space-between !important;
   }
+  .justify-content-end {
+    justify-content: end !important; 
+  }
   
   .bold {
     font-weight: bold !important;
@@ -171,4 +182,5 @@
   .m-4 {
     margin: 20px;
   }
+
   

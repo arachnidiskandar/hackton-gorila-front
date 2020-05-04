@@ -1,7 +1,31 @@
 @import './../../../scss/index.scss';
 
 #content {
-    padding: 20px;
+    padding: 20px 8vw;
+    height: calc(70vh - 40px);
+    .speech-bubble {
+        position: relative;
+        background: #f1f1f1;
+        border-radius: .4em;
+        padding: 10px 20px;
+        height: 100%;
+    }
+    .speech-bubble:after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        width: 0;
+        height: 0;
+        border: 20px solid transparent;
+        border-left-color: #f1f1f1;
+        border-right: 0;
+        margin-top: -20px;
+        margin-right: -20px;
+    }
+    img {
+        height: 400px;
+    }
     #nsei {
         margin-top: 20px;
         text-align: center;
@@ -11,35 +35,26 @@
         justify-content: flex-end;
         margin-top: 10vh;
         padding-right: 15vw;
-        .speech-bubble {
-            position: relative;
-            background: #00aabb;
-            border-radius: .4em;
-            padding: 10px 20px;
-            height: 100%;
-        }
-        .speech-bubble:after {
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 50%;
-            width: 0;
-            height: 0;
-            border: 20px solid transparent;
-            border-left-color: #00aabb;
-            border-right: 0;
-            margin-top: -20px;
-            margin-right: -20px;
-        }
-        img {
-            height: 400px;
+        
+    }
+    #form-perguntas {
+        display: flex;
+        height: 55vh;
+        justify-content: space-between;
+        .wrap-perguntas .pergunta{
+            #titulo-pergunta {
+                display: inline-block;
+            }
+            .wrapper {
+                .radio {
+                    width: 30px;
+                    height: 20px;
+                }
+            }
         }
     }
-    .container-perguntas {
-        .radio {
-            width: 30px;
-            height: 20px;
-        }
+    .botao {
+        display: flex;
+        flex-direction: row-reverse;
     }
-
 }

@@ -1,0 +1,38 @@
+<div id="content">
+    <div class="pergunta-control">
+      <label for="pergunta">Pergunta:</label><br />
+      <input id="pergunta" [(ngModel)]="perguntaDescricao" type="text" placeholder="Digite sua pergunta" />
+    </div>
+    <!-- <div style="margin-left: 5px;">
+      <label>Tipo de Resposta</label><br />
+      <select>
+        <option value="1">Dissertativa</option>
+        <option value="2">Objetiva</option>
+        <option value="3">Multipla Escolha</option>
+      </select>
+    </div> -->
+  <div>
+    <label>Explicação:</label><br />
+    <textarea [(ngModel)]="explicacao" rows="8" cols="50" placeholder="Digite a explicação para a pergunta"></textarea>
+  </div>
+  <div class="alternativas">
+    <label>Alternativas:</label><br />
+    <input #newHero id="input-alternativa" placeholder="Digite a alternativa" (keyup.enter)="addHero(newHero.value)"
+      (blur)="addHero(newHero.value); newHero.value = ''" />
+      <div id="checkboxes">
+        <input type="radio" value="conservador" id="cons">
+        <label for="cons">Conservador</label>
+        <input type="radio" value="moderado" id="mod">
+        <label for="mod">Moderado</label>
+        <input type="radio" value="arrojado" id="arr">
+        <label for="arr">Arrojado</label>
+        <input type="radio" value="indiferente" id="indf">
+        <label for="indf">Indiferente</label>
+      </div>
+    <button class="btn btn-secondary" (click)="addHero(newHero.value)">Adicionar Alternativa</button>
+  </div>
+  <li *ngFor="let hero of heroes">{{ hero }}</li>
+  <div>
+    <button class="btn btn-secondary" (click)="submitPergunta()">Enviar</button>
+  </div>
+</div>
